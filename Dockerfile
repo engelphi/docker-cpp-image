@@ -12,7 +12,7 @@ RUN apt-get update && apt-get -y install \
   xz-utils
 
 RUN wget -q -O /tmp/cmake.tar.gz --no-check-certificate \
-  https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz && \
+  https://cmake.org/files/v3.9/cmake-3.9.2-Linux-x86_64.tar.gz && \
   tar -xaf /tmp/cmake.tar.gz --strip-components=1 -C /usr/local && \
   rm /tmp/cmake.tar.gz
 
