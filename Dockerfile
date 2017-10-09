@@ -26,11 +26,12 @@ RUN wget -q -O /tmp/gtest.tar.gz --no-check-certificate \
   cd /tmp/ && tar -xf gtest.tar.gz && cd googletest-release-1.8.0 && \
   cmake -DBUILD_SHARED_LIBS=ON && \
   make && \
-  cp -a googletest/include/ /usr/include && \
-  cp -a googlemock/include/ /usr/include && \
+  cp -ra googletest/include/* /usr/include && \
+  cp -ra googlemock/include/* /usr/include && \
   cp -a googlemock/libgmock.so googlemock/libgmock_main.so \
         googlemock/gtest/libgtest_main.so\
         googlemock/gtest/libgtest.so /usr/lib/ && \
-  ldconfig -v && rm /tmp/gtest.tar.gz && rm -r /tmp/googletest-release-1.8.0
+  ldconfig -v && rm /tmp/gtest.tar.gz  && \
+  rm -r /tmp/googletest-release-1.8.0
 
 CMD         bash
