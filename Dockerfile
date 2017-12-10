@@ -34,4 +34,9 @@ RUN wget -q -O /tmp/gtest.tar.gz --no-check-certificate \
   ldconfig -v && rm /tmp/gtest.tar.gz  && \
   rm -r /tmp/googletest-release-1.8.0
 
+RUN wget -q -O /tmp/lcov.tar.gz --no-check-certificate \
+  http://downloads.sourceforge.net/ltp/lcov-1.13.tar.gz && \
+  cd /tmp/ && tar -xf /tmp/lcov.tar.gz && cd lcov-1.13 && \
+  make install && cd ../ && rm /tmp/lcov.tar.gz && rm -r lcov-1.13 
+
 CMD         bash
