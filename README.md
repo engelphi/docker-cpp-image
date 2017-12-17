@@ -9,6 +9,8 @@ Docker image for building modern c++ libraries and applications.
   - CMake 3.9.2
   - Googletest + Googlemock 1.8
   - lcov 1.13
+  - clang-tidy
+  - cppcheck
 
 ## Usage
 This image can be used as a build environment for Travis-CI which

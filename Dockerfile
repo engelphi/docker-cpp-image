@@ -39,4 +39,11 @@ RUN wget -q -O /tmp/lcov.tar.gz --no-check-certificate \
   cd /tmp/ && tar -xf /tmp/lcov.tar.gz && cd lcov-1.13 && \
   make install && cd ../ && rm /tmp/lcov.tar.gz && rm -r lcov-1.13 
 
+RUN wget -q -O /tmp/cppcheck.tar.gz --no-check-certificate \
+  http://github.com/danmar/cppcheck/releases/download/1.81/cppcheck-1.81.tar.gz && \
+  cd /tmp/ && tar -xf /tmp/cppcheck.tar.gz && cd cppcheck-1.81 && \
+  mkdir build && cd build && cmake -DCMAKE_CXX_COMPILER=clang++ .. && make && make install && \
+  cd /tmp/ && rm -r cppcheck.tar.gz cppcheck-1.81
+
+
 CMD         bash
