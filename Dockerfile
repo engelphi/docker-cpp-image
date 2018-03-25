@@ -1,4 +1,4 @@
-FROM        debian:jessie-slim
+FROM        gcc:latest
 MAINTAINER  Philipp Engel <philipp.engel.1990@googlemail.com>
 
 RUN apt-get update && apt-get -y install \
