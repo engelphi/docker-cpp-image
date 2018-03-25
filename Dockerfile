@@ -17,7 +17,7 @@ RUN wget -q -O /tmp/cmake.tar.gz --no-check-certificate \
   rm /tmp/cmake.tar.gz
 
 RUN wget -q -O /tmp/clang.tar.xz --no-check-certificate \
-  http://releases.llvm.org/5.0.0/clang+llvm-5.0.0-x86_64-linux-gnu-debian8.tar.xz && \
+  http://releases.llvm.org/6.0.0/clang+llvm-6.0.0-x86_64-linux-gnu-debian8.tar.xz && \
   tar -xaf /tmp/clang.tar.xz --strip-components=1 -C /usr/local && \
   rm /tmp/clang.tar.xz
 
