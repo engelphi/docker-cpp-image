@@ -19,8 +19,8 @@ RUN apt-get update && apt-get -y install \
   tar -xaf /tmp/clang.tar.xz --strip-components=1 -C /usr/local && \
   rm /tmp/clang.tar.xz && \
   wget -q -O /tmp/gtest.tar.gz --no-check-certificate \
-  https://github.com/google/googletest/archive/release-1.8.0.tar.gz && \
-  cd /tmp/ && tar -xf gtest.tar.gz && cd googletest-release-1.8.0 && \
+  https://github.com/abseil/googletest/archive/release-1.8.1.tar.gz && \
+  cd /tmp/ && tar -xf gtest.tar.gz && cd googletest-release-1.8.1 && \
   cmake -DBUILD_SHARED_LIBS=ON && \
   make && \
   cp -ra googletest/include/* /usr/include && \
@@ -29,7 +29,7 @@ RUN apt-get update && apt-get -y install \
         googlemock/gtest/libgtest_main.so\
         googlemock/gtest/libgtest.so /usr/lib/ && \
   ldconfig -v && rm /tmp/gtest.tar.gz  && \
-  rm -r /tmp/googletest-release-1.8.0 && \
+  rm -r /tmp/googletest-release-1.8.1 && \
   wget -q -O /tmp/lcov.tar.gz --no-check-certificate \
   http://downloads.sourceforge.net/ltp/lcov-1.13.tar.gz && \
   cd /tmp/ && tar -xf /tmp/lcov.tar.gz && cd lcov-1.13 && \
