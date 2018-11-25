@@ -11,7 +11,7 @@ RUN apt-get update && apt-get --no-install-recommends -y install \
   xz-utils && \
   apt-get clean && rm -rf /var/lib/apt/lists/* && \
   wget -q -O /tmp/cmake.tar.gz --no-check-certificate \
-  https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-Linux-x86_64.tar.gz \
+  https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-Linux-x86_64.tar.gz && \
   tar -xaf /tmp/cmake.tar.gz --strip-components=1 -C /usr/local && \
   rm /tmp/cmake.tar.gz && \
   wget -q -O /tmp/clang.tar.xz --no-check-certificate \
