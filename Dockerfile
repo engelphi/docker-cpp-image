@@ -1,7 +1,6 @@
-FROM        gcc:latest
-MAINTAINER  Philipp Engel <philipp.engel.1990@googlemail.com>
+FROM        gcc:8.2.0
 
-RUN apt-get update && apt-get -y install \
+RUN apt-get update && apt-get --no-install-recommends -y install \
   apt-utils \
   build-essential \
   curl \
@@ -10,6 +9,7 @@ RUN apt-get update && apt-get -y install \
   tar \
   wget \
   xz-utils && \
+  apt-get clean && rm -rf /var/lib/apt/lists/* && \
   wget -q -O /tmp/cmake.tar.gz --no-check-certificate \
   https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-Linux-x86_64.tar.gz \
   tar -xaf /tmp/cmake.tar.gz --strip-components=1 -C /usr/local && \
@@ -35,9 +35,11 @@ RUN apt-get update && apt-get -y install \
   cd /tmp/ && tar -xf /tmp/lcov.tar.gz && cd lcov-1.13 && \
   make install && cd ../ && rm /tmp/lcov.tar.gz && rm -r lcov-1.13 && \
   wget -q -O /tmp/cppcheck.tar.gz --no-check-certificate \
-  https://github.com/danmar/cppcheck/archive/1.85.tar.gz
+  https://github.com/danmar/cppcheck/archive/1.85.tar.gz && \
   cd /tmp/ && tar -xf /tmp/cppcheck.tar.gz && cd cppcheck-1.85 && \
   mkdir build && cd build && cmake -DCMAKE_CXX_COMPILER=clang++ .. && make && make install && \
   cd /tmp/ && rm -r cppcheck.tar.gz cppcheck-1.85
 
-CMD         bash
+CMD ["bash"]
+
+LABEL maintainer="philipp.engel.1990@googlemail.com"
