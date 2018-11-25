@@ -15,7 +15,7 @@ RUN apt-get update && apt-get -y install \
   tar -xaf /tmp/cmake.tar.gz --strip-components=1 -C /usr/local && \
   rm /tmp/cmake.tar.gz && \
   wget -q -O /tmp/clang.tar.xz --no-check-certificate \
-  http://releases.llvm.org/6.0.0/clang+llvm-6.0.0-x86_64-linux-gnu-debian8.tar.xz && \
+  http://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz && \
   tar -xaf /tmp/clang.tar.xz --strip-components=1 -C /usr/local && \
   rm /tmp/clang.tar.xz && \
   wget -q -O /tmp/gtest.tar.gz --no-check-certificate \
